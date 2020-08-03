@@ -1,0 +1,6 @@
+pandas
+numpy
+matplotlib
+request
+rolldecayestimators
+altair
