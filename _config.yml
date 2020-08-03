@@ -6,8 +6,8 @@
 # https://learn-the-web.algonquindesign.ca/topics/markdown-yaml-cheat-sheet/#yaml
 # https://learnxinyminutes.com/docs/yaml/
 
-title: DEMOPS  
-description: Development of Machine learning for Operational Performance of Ships.
+title: Martin Alexandersson  
+description: Blog about data analysis for ship hydrodynamics. 
 github_username: martinlarsalbert
 # you can comment the below line out if your repo name is not different than your baseurl
 github_repo: "blog"
