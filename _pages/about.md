@@ -3,12 +3,6 @@ layout: page
 title: About Me
 permalink: /about/
 ---
-
-# DEMOPS
-
-
-This website is powered by **[fastpages](https://github.com/fastai/fastpages)** [^1].
-
-
-
-[^1]:a blogging platform that natively supports Jupyter notebooks in addition to other formats.
+* Naval Architect degree from [KTH](https://www.ave.kth.se/avd/naval) in 2009.
+* Works at: [SSPA](https://www.sspa.se/)
+* Industrial PHD at [Chalmers](https://www.chalmers.se/en/departments/m2/Pages/default.aspx) since 2020.
