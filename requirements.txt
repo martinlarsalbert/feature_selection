@@ -4,3 +4,4 @@ matplotlib
 request
 rolldecay-estimators
 altair
+jupyter
