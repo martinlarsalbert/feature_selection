@@ -8,6 +8,17 @@
 
   
       "page1": {
+          "title": "DEMOPS",
+          "content": "",
+          "url": "https://martinlarsalbert.github.io/blog/DEMOPS/",
+          "relUrl": "/DEMOPS/",
+          "date": ""
+      }
+      
+  
+
+  
+      ,"page2": {
           "title": "About Me",
           "content": "Naval Architect degree from KTH in 2009. | Works at: SSPA | Industrial PHD at Chalmers since 2020. | .",
           "url": "https://martinlarsalbert.github.io/blog/about/",
@@ -39,7 +50,7 @@
   
 
   
-      ,"page10": {
+      ,"page11": {
           "title": "",
           "content": "Sitemap: {{ “sitemap.xml” | absolute_url }} | .",
           "url": "https://martinlarsalbert.github.io/blog/robots.txt",
