@@ -1,13 +1,24 @@
 {
   
     
+        "post0": {
+            "title": "Title",
+            "content": "",
+            "url": "https://martinlarsalbert.github.io/blog/2020/08/12/01_feature_selection_for_regression_data.html",
+            "relUrl": "/2020/08/12/01_feature_selection_for_regression_data.html",
+            "date": " • Aug 12, 2020"
+        }
+        
+    
+  
+    
   
 
   
   
 
   
-      "page1": {
+      ,"page1": {
           "title": "DEMOPS",
           "content": "I have had the privilige to work as Industrial PHD in a project called DEMOPS which roughly stands for Development of Machine Learning for Operational Performance of Ships. .",
           "url": "https://martinlarsalbert.github.io/blog/DEMOPS/",
