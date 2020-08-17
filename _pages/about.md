@@ -9,4 +9,4 @@ permalink: /about/
 
 [Contact](mailto:&#109;&#097;&#114;&#097;&#108;&#101;&#120;&#064;&#099;&#104;&#097;&#108;&#109;&#101;&#114;&#115;&#046;&#115;&#101;)
 
-<img src="kajak.jpg" alt="Martin in a canoe" width="300">
+![Martin in a canoe](kajak.jpg)
