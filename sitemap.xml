@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 <url>
+<loc>https://martinlarsalbert.github.io/blog/machine%20learning/regression/2019/12/14/01_spring_mass_damper.html</loc>
+<lastmod>2019-12-14T00:00:00-06:00</lastmod>
+</url>
+<url>
 <loc>https://martinlarsalbert.github.io/blog/roll%20damping/roll%20decay/demops/machine%20learning/rest%20api/2020/08/03/01_request_API.html</loc>
 <lastmod>2020-08-03T00:00:00-05:00</lastmod>
 </url>
@@ -18,10 +22,6 @@
 </url>
 <url>
 <loc>https://martinlarsalbert.github.io/blog/simulation/dynamics/spring%20mass%20damper/2020/08/25/01_nomoto_model.html</loc>
-<lastmod>2020-08-25T00:00:00-05:00</lastmod>
-</url>
-<url>
-<loc>https://martinlarsalbert.github.io/blog/machine%20learning/regression/2020/08/25/02_spring_mass_damper.html</loc>
 <lastmod>2020-08-25T00:00:00-05:00</lastmod>
 </url>
 <url>
