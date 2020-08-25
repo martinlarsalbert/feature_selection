@@ -111,7 +111,7 @@ window.onload = wrap_img;
        • <span class="read-time" title="Estimated read time">
     
     
-      6 min read
+      7 min read
     
 </span></p>
 
@@ -1172,6 +1172,213 @@ $\displaystyle R = 0.315299 C_{p}^{2} F_{n} + 1.740994 F_{n}^{4} + 4.785126 F_{n
 </div>
 </div>
 </div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">scaler</span><span class="o">=</span><span class="n">model</span><span class="p">[</span><span class="s1">'scaler'</span><span class="p">]</span>
+<span class="n">scaler</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>array([[ 0.09717082, -0.14870298,  0.05415696, -1.61245155,  0.16616243,
+        -0.03418367],
+       [ 0.09717082, -0.14870298,  0.05415696, -1.36438208,  0.16616243,
+        -0.03418367],
+       [ 0.09717082, -0.14870298,  0.05415696, -1.11631261,  0.16616243,
+        -0.03418367],
+       ...,
+       [ 0.53568528, -1.92579533,  0.05415696,  1.11631261,  1.5423783 ,
+        -1.7757515 ],
+       [ 0.53568528, -1.92579533,  0.05415696,  1.36438208,  1.5423783 ,
+        -1.7757515 ],
+       [ 0.53568528, -1.92579533,  0.05415696,  1.61245155,  1.5423783 ,
+        -1.7757515 ]])</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">X</span><span class="o">/</span><span class="n">scaler</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>b/d</th>
+      <th>l/b</th>
+      <th>lcg</th>
+      <th>fn</th>
+      <th>cp</th>
+      <th>volume</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>0</td>
+      <td>41.061711</td>
+      <td>-21.317664</td>
+      <td>-42.469151</td>
+      <td>-0.077522</td>
+      <td>3.418342</td>
+      <td>-139.832866</td>
+    </tr>
+    <tr>
+      <td>1</td>
+      <td>41.061711</td>
+      <td>-21.317664</td>
+      <td>-42.469151</td>
+      <td>-0.109940</td>
+      <td>3.418342</td>
+      <td>-139.832866</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>41.061711</td>
+      <td>-21.317664</td>
+      <td>-42.469151</td>
+      <td>-0.156766</td>
+      <td>3.418342</td>
+      <td>-139.832866</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td>41.061711</td>
+      <td>-21.317664</td>
+      <td>-42.469151</td>
+      <td>-0.230350</td>
+      <td>3.418342</td>
+      <td>-139.832866</td>
+    </tr>
+    <tr>
+      <td>4</td>
+      <td>41.061711</td>
+      <td>-21.317664</td>
+      <td>-42.469151</td>
+      <td>-0.362802</td>
+      <td>3.418342</td>
+      <td>-139.832866</td>
+    </tr>
+    <tr>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <td>303</td>
+      <td>7.896428</td>
+      <td>-1.417596</td>
+      <td>-42.469151</td>
+      <td>0.564358</td>
+      <td>0.389010</td>
+      <td>-2.444036</td>
+    </tr>
+    <tr>
+      <td>304</td>
+      <td>7.896428</td>
+      <td>-1.417596</td>
+      <td>-42.469151</td>
+      <td>0.431907</td>
+      <td>0.389010</td>
+      <td>-2.444036</td>
+    </tr>
+    <tr>
+      <td>305</td>
+      <td>7.896428</td>
+      <td>-1.417596</td>
+      <td>-42.469151</td>
+      <td>0.358323</td>
+      <td>0.389010</td>
+      <td>-2.444036</td>
+    </tr>
+    <tr>
+      <td>306</td>
+      <td>7.896428</td>
+      <td>-1.417596</td>
+      <td>-42.469151</td>
+      <td>0.311496</td>
+      <td>0.389010</td>
+      <td>-2.444036</td>
+    </tr>
+    <tr>
+      <td>307</td>
+      <td>7.896428</td>
+      <td>-1.417596</td>
+      <td>-42.469151</td>
+      <td>0.279078</td>
+      <td>0.389010</td>
+      <td>-2.444036</td>
+    </tr>
+  </tbody>
+</table>
+<p>308 rows × 6 columns</p>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
 </div>
 
 
