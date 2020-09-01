@@ -264,30 +264,14 @@ where $r$ is yaw rate with its time derivatives and $\delta$ is the rudder angle
     <span class="n">d_states_dt</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">r</span><span class="p">,</span><span class="n">r1d_</span><span class="p">])</span>
     
     <span class="k">return</span> <span class="n">d_states_dt</span>
-</pre></div>
 
-    </div>
-</div>
-</div>
-
-    </details>
-</div>
-    
-
-    
-    
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">simulate_zigzag</span><span class="p">(</span><span class="n">K</span> <span class="o">=</span> <span class="mf">0.2</span><span class="p">,</span> <span class="n">T_1</span><span class="o">=</span><span class="mi">10</span><span class="p">):</span>
+<span class="k">def</span> <span class="nf">simulate_zigzag</span><span class="p">(</span><span class="n">K</span> <span class="o">=</span> <span class="mf">0.2</span><span class="p">,</span> <span class="n">T_1</span><span class="o">=</span><span class="mi">10</span><span class="p">):</span>
 
     <span class="c1">## Simulation:</span>
     
     <span class="n">angle</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">deg2rad</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
     <span class="n">states_0</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">])</span>
-    <span class="n">t</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">100</span><span class="p">,</span><span class="mi">100</span><span class="p">)</span>
+    <span class="n">t</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">100</span><span class="p">,</span><span class="mi">200</span><span class="p">)</span>
     
     <span class="n">sol</span> <span class="o">=</span> <span class="n">solve_ivp</span><span class="p">(</span><span class="n">fun</span> <span class="o">=</span> <span class="n">nomoto_zigzag</span><span class="p">,</span><span class="n">t_span</span><span class="o">=</span><span class="p">[</span><span class="n">t</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="n">t</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]],</span><span class="n">t_eval</span><span class="o">=</span><span class="n">t</span><span class="p">,</span> <span class="n">y0</span> <span class="o">=</span> <span class="n">states_0</span><span class="p">,</span> <span class="n">args</span><span class="o">=</span><span class="p">(</span><span class="n">K</span><span class="p">,</span><span class="n">T_1</span><span class="p">,</span><span class="n">angle</span><span class="p">))</span>
     <span class="n">psi</span> <span class="o">=</span> <span class="n">sol</span><span class="o">.</span><span class="n">y</span><span class="p">[</span><span class="mi">0</span><span class="p">,:]</span>
@@ -300,15 +284,25 @@ where $r$ is yaw rate with its time derivatives and $\delta$ is the rudder angle
     <span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">'Simulation ZigZag</span><span class="si">%0.0f</span><span class="s1">/</span><span class="si">%0.0f</span><span class="s1"> with Nomoto model'</span> <span class="o">%</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">rad2deg</span><span class="p">(</span><span class="n">angle</span><span class="p">),</span><span class="n">np</span><span class="o">.</span><span class="n">rad2deg</span><span class="p">(</span><span class="n">angle</span><span class="p">)))</span>
     <span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">'$\psi$ [deg]'</span><span class="p">)</span>
     <span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">'time [s]'</span><span class="p">);</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="o">-</span><span class="mi">30</span><span class="p">,</span><span class="mi">30</span><span class="p">)</span>
 </pre></div>
 
     </div>
 </div>
 </div>
 
+    </details>
 </div>
     
 
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Here is an ipywidget expoling the influence of the $K$ and $T_1$ coefficients during a ZigZag10/10: (You can use the buttons <em>launch binder</em> or <em>Open in Colab</em> to get this running.)</p>
+
+</div>
+</div>
+</div>
     
     
 <div class="cell border-box-sizing code_cell rendered">
@@ -320,7 +314,7 @@ where $r$ is yaw rate with its time derivatives and $\delta$ is the rudder angle
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#collapse</span>
-<span class="n">interactive_plot</span> <span class="o">=</span> <span class="n">interactive</span><span class="p">(</span><span class="n">simulate_zigzag</span><span class="p">,</span> <span class="n">K</span><span class="o">=</span><span class="p">(</span><span class="mf">0.01</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">),</span> <span class="n">T_1</span><span class="o">=</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">))</span>
+<span class="n">interactive_plot</span> <span class="o">=</span> <span class="n">interactive</span><span class="p">(</span><span class="n">simulate_zigzag</span><span class="p">,</span> <span class="n">K</span><span class="o">=</span><span class="p">(</span><span class="mf">0.01</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">),</span> <span class="n">T_1</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">))</span>
 <span class="n">output</span> <span class="o">=</span> <span class="n">interactive_plot</span><span class="o">.</span><span class="n">children</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
 <span class="n">output</span><span class="o">.</span><span class="n">layout</span><span class="o">.</span><span class="n">height</span> <span class="o">=</span> <span class="s1">'350px'</span>
 <span class="n">interactive_plot</span>
