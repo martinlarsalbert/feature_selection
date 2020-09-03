@@ -2,7 +2,7 @@
 title: ICSOS Conference 2020
 toc: true
 layout: post
-description: I presented the paper *Analysis of roll damping model scale data* on the [ICSOS 2020 conference](https://www.icsos.info/). Here are my notes from this conference.
+description: I presented the paper "Analysis of roll damping model scale data" on the ICSOS 2020 conference. Here are my notes from this conference.
 categories: [markdown]
 branch: master
 comments: true
@@ -15,6 +15,7 @@ metadata_key2: metadata_value2
 ---
 
 ## Notes about papers/presenations
+Here are my notes from the [ICSOS 2020 conference](https://www.icsos.info/).
 
 ### A dockin simulation framework: model evaluation and expert knowledge data harvesting
 A paper by [Marco Mirkulec](https://www.linkedin.com/in/marko-mikulec-8879559a/) et.al. They have used [pygame](https://www.pygame.org/) to make a simple simulation for docking simulations, very cool.
