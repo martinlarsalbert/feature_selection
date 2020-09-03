@@ -1,5 +1,5 @@
 ---
-title: ICSOS Conference
+title: ICSOS Conference 2020
 toc: true
 layout: post
 description: I presented the paper *Analysis of roll damping model scale data* on the [ICSOS 2020 conference](https://www.icsos.info/). Here are my notes from this conference.
