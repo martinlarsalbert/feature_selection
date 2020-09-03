@@ -2,7 +2,7 @@
 title: ICSOS Conference 2020
 toc: true
 layout: post
-description: I presented the paper *Analysis of roll damping model scale data* on the [ICSOS 2020 conference](https://www.icsos.info/). Here are my notes from this conference.
+description: I presented the paper *Analysis of roll damping model scale data* on the ICSOS 2020 conference. Here are my notes from this conference.
 categories: [markdown]
 branch: master
 comments: true
@@ -19,7 +19,7 @@ I presented the paper *Analysis of roll damping model scale data* on the [ICSOS 
 ## Notes about papers/presenations
 
 ### A dockin simulation framework: model evaluation and expert knowledge data harvesting
-A paper by Marco Mirkulec et.al. They have used (pygame)[https://www.pygame.org/] to make a simple simulation for docking simulations, very cool.
+A paper by Marco Mirkulec et.al. They have used [pygame](https://www.pygame.org/) to make a simple simulation for docking simulations, very cool.
 
 ### Parameter identification of nonlinear ship maneuvering model using support vector machine method
 A paper by Tongtong Wang et.al. about system identification of manoeuvring tests using Support Vector Machine regression (SVR).
@@ -32,6 +32,6 @@ A paper by Tongtong Wang et.al. about system identification of manoeuvring tests
 A paper by Pierre Major et.al.
 * Digital twin = predictin an existing ship (usually a lot of measurement data avaliable)
 * Virtual prototype = Nonexistong ship (usually less data avaliable)
-* (opensimulationplatform)[https://opensimulationplatform.com/]
-* (fhsim)[https://fhsim.no/docs/licence.html]
-* (fmi-standard)[https://fmi-standard.org/]
+* [opensimulationplatform](https://opensimulationplatform.com/)
+* [fhsim](https://fhsim.no/docs/licence.html)
+* [fmi-standard](https://fmi-standard.org/)
