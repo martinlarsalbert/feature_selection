@@ -29,7 +29,7 @@ A paper by Tongtong Wang et.al. about system identification of manoeuvring tests
 * The system identification works extremly good (I'm impressed).
 
 ### Fast Virtual Prototyping a case study with the RV Gunnerus reaseach vessel
-A paper by Pierre Major et.al.
+A paper by [Pierre Major](linkedin.com/in/pierre-major-b72598) et.al.
 * Digital twin = predictin an existing ship (usually a lot of measurement data avaliable)
 * Virtual prototype = Nonexistong ship (usually less data avaliable)
 * [opensimulationplatform](https://opensimulationplatform.com/)
