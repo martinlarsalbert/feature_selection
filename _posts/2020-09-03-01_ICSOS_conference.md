@@ -32,6 +32,7 @@ A paper by Tongtong Wang et.al. about system identification of manoeuvring tests
 A paper by [Pierre Major](https://www.linkedin.com/in/pierre-major-b72598/) et.al.
 * Digital twin = predictin an existing ship (usually a lot of measurement data avaliable)
 * Virtual prototype = Nonexistong ship (usually less data avaliable)
-* [opensimulationplatform](https://opensimulationplatform.com/)
-* [fhsim](https://fhsim.no/docs/licence.html)
-* [fmi-standard](https://fmi-standard.org/)
+* There were some interesting simulators:
+  * [opensimulationplatform](https://opensimulationplatform.com/)
+  * [fhsim](https://fhsim.no/docs/licence.html)
+  * [fmi-standard](https://fmi-standard.org/)
