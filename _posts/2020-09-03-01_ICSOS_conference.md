@@ -19,7 +19,7 @@ I presented the paper *Analysis of roll damping model scale data* on the [ICSOS 
 ## Notes about papers/presenations
 
 ### A dockin simulation framework: model evaluation and expert knowledge data harvesting
-A paper by Marco Mirkulec et.al. They have used [pygame](https://www.pygame.org/) to make a simple simulation for docking simulations, very cool.
+A paper by [Marco Mirkulec](https://www.linkedin.com/in/marko-mikulec-8879559a/) et.al. They have used [pygame](https://www.pygame.org/) to make a simple simulation for docking simulations, very cool.
 
 ### Parameter identification of nonlinear ship maneuvering model using support vector machine method
 A paper by Tongtong Wang et.al. about system identification of manoeuvring tests using Support Vector Machine regression (SVR).
@@ -29,7 +29,7 @@ A paper by Tongtong Wang et.al. about system identification of manoeuvring tests
 * The system identification works extremly good (I'm impressed).
 
 ### Fast Virtual Prototyping a case study with the RV Gunnerus reaseach vessel
-A paper by [Pierre Major](linkedin.com/in/pierre-major-b72598) et.al.
+A paper by [Pierre Major](https://www.linkedin.com/in/pierre-major-b72598/) et.al.
 * Digital twin = predictin an existing ship (usually a lot of measurement data avaliable)
 * Virtual prototype = Nonexistong ship (usually less data avaliable)
 * [opensimulationplatform](https://opensimulationplatform.com/)
