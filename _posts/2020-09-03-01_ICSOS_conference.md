@@ -2,7 +2,7 @@
 title: ICSOS Conference 2020
 toc: true
 layout: post
-description: I presented the paper Analysis of roll damping model scale data on the ICSOS 2020 conference. Here are my notes from this conference.
+description: I presented the paper *Analysis of roll damping model scale data* on the [ICSOS 2020 conference](https://www.icsos.info/). Here are my notes from this conference.
 categories: [markdown]
 branch: master
 comments: true
@@ -13,8 +13,6 @@ search_exclude: true
 metadata_key1: metadata_value1
 metadata_key2: metadata_value2
 ---
-# ICSOS Conference
-I presented the paper *Analysis of roll damping model scale data* on the [ICSOS 2020 conference](https://www.icsos.info/). Here are my notes from this conference.
 
 ## Notes about papers/presenations
 
