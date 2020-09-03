@@ -16,6 +16,7 @@ metadata_key2: metadata_value2
 
 ## Notes about papers/presenations
 Here are my notes from the [ICSOS 2020 conference](https://www.icsos.info/).
+A lot of the presentation that I found interesting were from [NTNU Ålesund](https://www.ntnu.edu/ihb).
 
 ### A dockin simulation framework: model evaluation and expert knowledge data harvesting
 A paper by [Marco Mirkulec](https://www.linkedin.com/in/marko-mikulec-8879559a/) et.al. They have used [pygame](https://www.pygame.org/) to make a simple simulation for docking simulations, very cool.
