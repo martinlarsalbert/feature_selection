@@ -6,7 +6,7 @@ description: I presented the paper *Analysis of roll damping model scale data* o
 categories: [markdown]
 branch: master
 comments: true
-categories: [dynamics, kalman filter]
+categories: [papers, research]
 image: https://le-cdn.website-editor.net/a88a366fb4174f939aa349fe67bc7d1e/dms3rep/multi/opt/ICSOS-640w.png
 hide: false
 search_exclude: true
