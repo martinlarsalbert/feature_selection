@@ -4,36 +4,36 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="twitter:card" content="summary" /><!-- Begin Jekyll SEO tag v2.6.1 -->
-<title>Numpy array methods | Martin Alexandersson</title>
+<title>Kalman-and-Bayesian-Filters-in-Python g-h-filter | Martin Alexandersson</title>
 <meta name="generator" content="Jekyll v4.0.0" />
-<meta property="og:title" content="Numpy array methods" />
+<meta property="og:title" content="Kalman-and-Bayesian-Filters-in-Python g-h-filter" />
 <meta property="og:locale" content="en_US" />
-<meta name="description" content="It is nice with methods that can accept both scalar values (int, float) but also array of values (numpy.ndarray). In many cases I write methods that take only scalar values as arguments, so that I need to itterate this method to work an array of arguments. Here I want to explore the best way to turn these scalar methods into array methods." />
-<meta property="og:description" content="It is nice with methods that can accept both scalar values (int, float) but also array of values (numpy.ndarray). In many cases I write methods that take only scalar values as arguments, so that I need to itterate this method to work an array of arguments. Here I want to explore the best way to turn these scalar methods into array methods." />
-<link rel="canonical" href="https://martinlarsalbert.github.io/blog/python/numpy/pandas/2020/09/16/01_Kalman_and_Bayesian_Filters_in_Python_gh-filter.html" />
-<meta property="og:url" content="https://martinlarsalbert.github.io/blog/python/numpy/pandas/2020/09/16/01_Kalman_and_Bayesian_Filters_in_Python_gh-filter.html" />
+<meta name="description" content="I found an amazing free online book about Bayesian-Filters called Kalman-and-Bayesian-Filters-in-Python. Here are my notes about the g-h-filter." />
+<meta property="og:description" content="I found an amazing free online book about Bayesian-Filters called Kalman-and-Bayesian-Filters-in-Python. Here are my notes about the g-h-filter." />
+<link rel="canonical" href="https://martinlarsalbert.github.io/blog/bayesian-filters/gh-filter/kalman%20filter/2020/09/16/01_Kalman_and_Bayesian_Filters_in_Python_gh-filter.html" />
+<meta property="og:url" content="https://martinlarsalbert.github.io/blog/bayesian-filters/gh-filter/kalman%20filter/2020/09/16/01_Kalman_and_Bayesian_Filters_in_Python_gh-filter.html" />
 <meta property="og:site_name" content="Martin Alexandersson" />
-<meta property="og:image" content="https://martinlarsalbert.github.io/blog/images/DEMOPS.png" />
+<meta property="og:image" content="https://martinlarsalbert.github.io/blog/images/gh-filter.png" />
 <meta property="og:type" content="article" />
 <meta property="article:published_time" content="2020-09-16T00:00:00-05:00" />
 <script type="application/ld+json">
-{"description":"It is nice with methods that can accept both scalar values (int, float) but also array of values (numpy.ndarray). In many cases I write methods that take only scalar values as arguments, so that I need to itterate this method to work an array of arguments. Here I want to explore the best way to turn these scalar methods into array methods.","@type":"BlogPosting","headline":"Numpy array methods","url":"https://martinlarsalbert.github.io/blog/python/numpy/pandas/2020/09/16/01_Kalman_and_Bayesian_Filters_in_Python_gh-filter.html","datePublished":"2020-09-16T00:00:00-05:00","dateModified":"2020-09-16T00:00:00-05:00","image":"https://martinlarsalbert.github.io/blog/images/DEMOPS.png","mainEntityOfPage":{"@type":"WebPage","@id":"https://martinlarsalbert.github.io/blog/python/numpy/pandas/2020/09/16/01_Kalman_and_Bayesian_Filters_in_Python_gh-filter.html"},"@context":"https://schema.org"}</script>
+{"description":"I found an amazing free online book about Bayesian-Filters called Kalman-and-Bayesian-Filters-in-Python. Here are my notes about the g-h-filter.","@type":"BlogPosting","headline":"Kalman-and-Bayesian-Filters-in-Python g-h-filter","url":"https://martinlarsalbert.github.io/blog/bayesian-filters/gh-filter/kalman%20filter/2020/09/16/01_Kalman_and_Bayesian_Filters_in_Python_gh-filter.html","datePublished":"2020-09-16T00:00:00-05:00","dateModified":"2020-09-16T00:00:00-05:00","image":"https://martinlarsalbert.github.io/blog/images/gh-filter.png","mainEntityOfPage":{"@type":"WebPage","@id":"https://martinlarsalbert.github.io/blog/bayesian-filters/gh-filter/kalman%20filter/2020/09/16/01_Kalman_and_Bayesian_Filters_in_Python_gh-filter.html"},"@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 <link rel="stylesheet" href="/blog/assets/css/style.css"><link type="application/atom+xml" rel="alternate" href="https://martinlarsalbert.github.io/blog/feed.xml" title="Martin Alexandersson" /><link rel="shortcut icon" type="image/x-icon" href="/blog/images/favicon.ico"><!-- Begin Jekyll SEO tag v2.6.1 -->
-<title>Numpy array methods | Martin Alexandersson</title>
+<title>Kalman-and-Bayesian-Filters-in-Python g-h-filter | Martin Alexandersson</title>
 <meta name="generator" content="Jekyll v4.0.0" />
-<meta property="og:title" content="Numpy array methods" />
+<meta property="og:title" content="Kalman-and-Bayesian-Filters-in-Python g-h-filter" />
 <meta property="og:locale" content="en_US" />
-<meta name="description" content="It is nice with methods that can accept both scalar values (int, float) but also array of values (numpy.ndarray). In many cases I write methods that take only scalar values as arguments, so that I need to itterate this method to work an array of arguments. Here I want to explore the best way to turn these scalar methods into array methods." />
-<meta property="og:description" content="It is nice with methods that can accept both scalar values (int, float) but also array of values (numpy.ndarray). In many cases I write methods that take only scalar values as arguments, so that I need to itterate this method to work an array of arguments. Here I want to explore the best way to turn these scalar methods into array methods." />
-<link rel="canonical" href="https://martinlarsalbert.github.io/blog/python/numpy/pandas/2020/09/16/01_Kalman_and_Bayesian_Filters_in_Python_gh-filter.html" />
-<meta property="og:url" content="https://martinlarsalbert.github.io/blog/python/numpy/pandas/2020/09/16/01_Kalman_and_Bayesian_Filters_in_Python_gh-filter.html" />
+<meta name="description" content="I found an amazing free online book about Bayesian-Filters called Kalman-and-Bayesian-Filters-in-Python. Here are my notes about the g-h-filter." />
+<meta property="og:description" content="I found an amazing free online book about Bayesian-Filters called Kalman-and-Bayesian-Filters-in-Python. Here are my notes about the g-h-filter." />
+<link rel="canonical" href="https://martinlarsalbert.github.io/blog/bayesian-filters/gh-filter/kalman%20filter/2020/09/16/01_Kalman_and_Bayesian_Filters_in_Python_gh-filter.html" />
+<meta property="og:url" content="https://martinlarsalbert.github.io/blog/bayesian-filters/gh-filter/kalman%20filter/2020/09/16/01_Kalman_and_Bayesian_Filters_in_Python_gh-filter.html" />
 <meta property="og:site_name" content="Martin Alexandersson" />
-<meta property="og:image" content="https://martinlarsalbert.github.io/blog/images/DEMOPS.png" />
+<meta property="og:image" content="https://martinlarsalbert.github.io/blog/images/gh-filter.png" />
 <meta property="og:type" content="article" />
 <meta property="article:published_time" content="2020-09-16T00:00:00-05:00" />
 <script type="application/ld+json">
-{"description":"It is nice with methods that can accept both scalar values (int, float) but also array of values (numpy.ndarray). In many cases I write methods that take only scalar values as arguments, so that I need to itterate this method to work an array of arguments. Here I want to explore the best way to turn these scalar methods into array methods.","@type":"BlogPosting","headline":"Numpy array methods","url":"https://martinlarsalbert.github.io/blog/python/numpy/pandas/2020/09/16/01_Kalman_and_Bayesian_Filters_in_Python_gh-filter.html","datePublished":"2020-09-16T00:00:00-05:00","dateModified":"2020-09-16T00:00:00-05:00","image":"https://martinlarsalbert.github.io/blog/images/DEMOPS.png","mainEntityOfPage":{"@type":"WebPage","@id":"https://martinlarsalbert.github.io/blog/python/numpy/pandas/2020/09/16/01_Kalman_and_Bayesian_Filters_in_Python_gh-filter.html"},"@context":"https://schema.org"}</script>
+{"description":"I found an amazing free online book about Bayesian-Filters called Kalman-and-Bayesian-Filters-in-Python. Here are my notes about the g-h-filter.","@type":"BlogPosting","headline":"Kalman-and-Bayesian-Filters-in-Python g-h-filter","url":"https://martinlarsalbert.github.io/blog/bayesian-filters/gh-filter/kalman%20filter/2020/09/16/01_Kalman_and_Bayesian_Filters_in_Python_gh-filter.html","datePublished":"2020-09-16T00:00:00-05:00","dateModified":"2020-09-16T00:00:00-05:00","image":"https://martinlarsalbert.github.io/blog/images/gh-filter.png","mainEntityOfPage":{"@type":"WebPage","@id":"https://martinlarsalbert.github.io/blog/bayesian-filters/gh-filter/kalman%20filter/2020/09/16/01_Kalman_and_Bayesian_Filters_in_Python_gh-filter.html"},"@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 
 <link href="https://unpkg.com/@primer/css/dist/primer.css" rel="stylesheet" />
@@ -105,7 +105,7 @@ window.onload = wrap_img;
         <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
 
   <header class="post-header">
-    <h1 class="post-title p-name" itemprop="name headline">Numpy array methods</h1><p class="page-description">It is nice with methods that can accept both scalar values (int, float) but also array of values (numpy.ndarray). In many cases I write methods that take only scalar values as arguments, so that I need to itterate this method to work an array of arguments. Here I want to explore the best way to turn these scalar methods into array methods.</p><p class="post-meta post-meta-title"><time class="dt-published" datetime="2020-09-16T00:00:00-05:00" itemprop="datePublished">
+    <h1 class="post-title p-name" itemprop="name headline">Kalman-and-Bayesian-Filters-in-Python g-h-filter</h1><p class="page-description">I found an amazing free online book about Bayesian-Filters called Kalman-and-Bayesian-Filters-in-Python. Here are my notes about the g-h-filter.</p><p class="post-meta post-meta-title"><time class="dt-published" datetime="2020-09-16T00:00:00-05:00" itemprop="datePublished">
         Sep 16, 2020
       </time>
        • <span class="read-time" title="Estimated read time">
@@ -118,13 +118,13 @@ window.onload = wrap_img;
     
       <p class="category-tags"><i class="fas fa-tags category-tags-icon"></i></i> 
       
-        <a class="category-tags-link" href="/blog/categories/#python">python</a>
+        <a class="category-tags-link" href="/blog/categories/#bayesian-filters">bayesian-filters</a>
         &nbsp;
       
-        <a class="category-tags-link" href="/blog/categories/#numpy">numpy</a>
+        <a class="category-tags-link" href="/blog/categories/#gh-filter">gh-filter</a>
         &nbsp;
       
-        <a class="category-tags-link" href="/blog/categories/#pandas">pandas</a>
+        <a class="category-tags-link" href="/blog/categories/#kalman filter">kalman filter</a>
         
       
       </p>
@@ -156,11 +156,7 @@ window.onload = wrap_img;
 
   <div class="post-content e-content" itemprop="articleBody">
     <ul class="section-nav">
-<li class="toc-entry toc-h1"><a href="#Kalman-and-Bayesian-Filters-in-Python:-g-h-filter">Kalman-and-Bayesian-Filters-in-Python: g-h-filter </a>
-<ul>
 <li class="toc-entry toc-h2"><a href="#Exercise:-Write-Generic-Algorithm">Exercise: Write Generic Algorithm </a></li>
-</ul>
-</li>
 </ul><!--
 #################################################
 ### THIS FILE WAS AUTOGENERATED! DO NOT EDIT! ###
@@ -177,30 +173,6 @@ window.onload = wrap_img;
 </div>
     
 
-<div class="cell border-box-sizing text_cell rendered">
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Kalman-and-Bayesian-Filters-in-Python:-g-h-filter">
-<a class="anchor" href="#Kalman-and-Bayesian-Filters-in-Python:-g-h-filter" aria-hidden="true"><span class="octicon octicon-link"></span></a>Kalman-and-Bayesian-Filters-in-Python: g-h-filter<a class="anchor-link" href="#Kalman-and-Bayesian-Filters-in-Python:-g-h-filter"> </a>
-</h1>
-<blockquote>
-<p>I found an amazing free online book about Bayesian-Filters called Kalman-and-Bayesian-Filters-in-Python. Here are my notes about the g-h-filter.</p>
-</blockquote>
-<ul>
-<li>toc:true- branch: master</li>
-<li>badges: true</li>
-<li>comments: true</li>
-<li>categories: [bayesian-filters, gh-filter, kalman filter]</li>
-<li>image: images/gh-filter.png</li>
-<li>hide: false</li>
-<li>search_exclude: true</li>
-<li>metadata_key1: metadata_value1</li>
-<li>metadata_key2: metadata_value2</li>
-</ul>
-
-</div>
-</div>
-</div>
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -443,7 +415,7 @@ window.onload = wrap_img;
         theme="github-light"
         crossorigin="anonymous"
         async>
-</script><a class="u-url" href="/blog/python/numpy/pandas/2020/09/16/01_Kalman_and_Bayesian_Filters_in_Python_gh-filter.html" hidden></a>
+</script><a class="u-url" href="/blog/bayesian-filters/gh-filter/kalman%20filter/2020/09/16/01_Kalman_and_Bayesian_Filters_in_Python_gh-filter.html" hidden></a>
 </article>
       </div>
     </main><footer class="site-footer h-card">
