@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="twitter:card" content="summary" /><!-- Begin Jekyll SEO tag v2.6.1 -->
+<title>Springs | Martin Alexandersson</title>
+<meta name="generator" content="Jekyll v4.0.0" />
+<meta property="og:title" content="Springs" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Helped out some students today that were implementing a system of springs and masses, can I implement something similar?" />
+<meta property="og:description" content="Helped out some students today that were implementing a system of springs and masses, can I implement something similar?" />
+<link rel="canonical" href="https://martinlarsalbert.github.io/blog/simulation/mechanics/2020/10/14/01_springs.html" />
+<meta property="og:url" content="https://martinlarsalbert.github.io/blog/simulation/mechanics/2020/10/14/01_springs.html" />
+<meta property="og:site_name" content="Martin Alexandersson" />
+<meta property="og:image" content="https://www.fridman.com/74576_wp-uploads/2019/03/Compression-springs.jpg" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2020-10-14T00:00:00-05:00" />
+<script type="application/ld+json">
+{"description":"Helped out some students today that were implementing a system of springs and masses, can I implement something similar?","@type":"BlogPosting","headline":"Springs","url":"https://martinlarsalbert.github.io/blog/simulation/mechanics/2020/10/14/01_springs.html","datePublished":"2020-10-14T00:00:00-05:00","dateModified":"2020-10-14T00:00:00-05:00","image":"https://www.fridman.com/74576_wp-uploads/2019/03/Compression-springs.jpg","mainEntityOfPage":{"@type":"WebPage","@id":"https://martinlarsalbert.github.io/blog/simulation/mechanics/2020/10/14/01_springs.html"},"@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/blog/assets/css/style.css"><link type="application/atom+xml" rel="alternate" href="https://martinlarsalbert.github.io/blog/feed.xml" title="Martin Alexandersson" /><link rel="shortcut icon" type="image/x-icon" href="/blog/images/favicon.ico"><!-- Begin Jekyll SEO tag v2.6.1 -->
+<title>Springs | Martin Alexandersson</title>
+<meta name="generator" content="Jekyll v4.0.0" />
+<meta property="og:title" content="Springs" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Helped out some students today that were implementing a system of springs and masses, can I implement something similar?" />
+<meta property="og:description" content="Helped out some students today that were implementing a system of springs and masses, can I implement something similar?" />
+<link rel="canonical" href="https://martinlarsalbert.github.io/blog/simulation/mechanics/2020/10/14/01_springs.html" />
+<meta property="og:url" content="https://martinlarsalbert.github.io/blog/simulation/mechanics/2020/10/14/01_springs.html" />
+<meta property="og:site_name" content="Martin Alexandersson" />
+<meta property="og:image" content="https://www.fridman.com/74576_wp-uploads/2019/03/Compression-springs.jpg" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2020-10-14T00:00:00-05:00" />
+<script type="application/ld+json">
+{"description":"Helped out some students today that were implementing a system of springs and masses, can I implement something similar?","@type":"BlogPosting","headline":"Springs","url":"https://martinlarsalbert.github.io/blog/simulation/mechanics/2020/10/14/01_springs.html","datePublished":"2020-10-14T00:00:00-05:00","dateModified":"2020-10-14T00:00:00-05:00","image":"https://www.fridman.com/74576_wp-uploads/2019/03/Compression-springs.jpg","mainEntityOfPage":{"@type":"WebPage","@id":"https://martinlarsalbert.github.io/blog/simulation/mechanics/2020/10/14/01_springs.html"},"@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+<link href="https://unpkg.com/@primer/css/dist/primer.css" rel="stylesheet" />
+<link rel="stylesheet" href="//use.fontawesome.com/releases/v5.0.7/css/all.css"><link type="application/atom+xml" rel="alternate" href="https://martinlarsalbert.github.io/blog/feed.xml" title="Martin Alexandersson" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.css" integrity="sha384-zB1R0rpPzHqg7Kpt0Aljp8JPLqbXI3bhnPWROx27a9N0Ll6ZP/+DiW/UqRcLbRjq" crossorigin="anonymous">
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"> </script>
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.js" integrity="sha384-y23I5Q6l+B6vatafAwxRu/0oK/79VlbSz7Q9aiSZUvyWYIYsd+qj+o24G5ZU2zJz" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/auto-render.min.js" integrity="sha384-kWPLUVMOks5AQFrykwIup5lo0m3iMkkHrD0uJ4H5cjeGihAutqP0yW0J6dpFiVkI" crossorigin="anonymous"></script>
+    <script>
+    document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement( document.body, {
+        delimiters: [
+            {left: "$$", right: "$$", display: true},
+            {left: "[%", right: "%]", display: true},
+            {left: "$", right: "$", display: false}
+        ]}
+        );
+    });
+    </script>
+
+
+<script>
+function wrap_img(fn) {
+    if (document.attachEvent ? document.readyState === "complete" : document.readyState !== "loading") {
+        var elements = document.querySelectorAll(".post img");
+        Array.prototype.forEach.call(elements, function(el, i) {
+            if (el.getAttribute("title") && (el.className != "emoji")) {
+                const caption = document.createElement('figcaption');
+                var node = document.createTextNode(el.getAttribute("title"));
+                caption.appendChild(node);
+                const wrapper = document.createElement('figure');
+                wrapper.className = 'image';
+                el.parentNode.insertBefore(wrapper, el);
+                el.parentNode.removeChild(el);
+                wrapper.appendChild(el);
+                wrapper.appendChild(caption);
+            }
+        });
+    } else { document.addEventListener('DOMContentLoaded', fn); }
+}
+window.onload = wrap_img;
+</script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function(){
+    // add link icon to anchor tags
+    var elem = document.querySelectorAll(".anchor-link")
+    elem.forEach(e => (e.innerHTML = '<i class="fas fa-link fa-xs"></i>'));
+    });
+</script>
+</head>
+<body><header class="site-header">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/blog/">Martin Alexandersson</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/blog/DEMOPS/">DEMOPS</a><a class="page-link" href="/blog/about/">About Me</a><a class="page-link" href="/blog/search/">Search</a><a class="page-link" href="/blog/categories/">Tags</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">Springs</h1><p class="page-description">Helped out some students today that were implementing a system of springs and masses, can I implement something similar?</p><p class="post-meta post-meta-title"><time class="dt-published" datetime="2020-10-14T00:00:00-05:00" itemprop="datePublished">
+        Oct 14, 2020
+      </time>
+       • <span class="read-time" title="Estimated read time">
+    
+    
+      1 min read
+    
+</span></p>
+
+    
+      <p class="category-tags"><i class="fas fa-tags category-tags-icon"></i></i> 
+      
+        <a class="category-tags-link" href="/blog/categories/#simulation">simulation</a>
+        &nbsp;
+      
+        <a class="category-tags-link" href="/blog/categories/#mechanics">mechanics</a>
+        
+      
+      </p>
+    
+
+    
+      
+        <div class="pb-5 d-flex flex-wrap flex-justify-end">
+          <div class="px-2">
+
+    <a href="https://github.com/martinlarsalbert/blog/tree/master/_notebooks/2020-10-14-01_springs.ipynb" role="button" target="_blank">
+<img class="notebook-badge-image" src="/blog/assets/badges/github.svg" alt="View On GitHub">
+    </a>
+</div>
+
+          <div class="px-2">
+    <a href="https://mybinder.org/v2/gh/martinlarsalbert/blog/master?filepath=_notebooks%2F2020-10-14-01_springs.ipynb" target="_blank">
+        <img class="notebook-badge-image" src="/blog/assets/badges/binder.svg" alt="Open In Binder"/>
+    </a>
+</div>
+
+          <div class="px-2">
+    <a href="https://colab.research.google.com/github/martinlarsalbert/blog/blob/master/_notebooks/2020-10-14-01_springs.ipynb" target="_blank">
+        <img class="notebook-badge-image" src="/blog/assets/badges/colab.svg" alt="Open In Colab"/>
+    </a>
+</div>
+        </div>
+      </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <ul class="section-nav">
+</ul><!--
+#################################################
+### THIS FILE WAS AUTOGENERATED! DO NOT EDIT! ###
+#################################################
+# file to edit: _notebooks/2020-10-14-01_springs.ipynb
+-->
+
+<div class="container" id="notebook-container">
+        
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<details class="description">
+      <summary class="btn btn-sm" data-open="Hide Code" data-close="Show Code"></summary>
+        <p></p>
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#collapse</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">from</span> <span class="nn">scipy.integrate</span> <span class="kn">import</span> <span class="n">odeint</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+    </details>
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">N</span><span class="o">=</span><span class="mi">3</span>
+<span class="n">xs0</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="n">N</span><span class="p">)</span>
+<span class="n">ys0</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">N</span><span class="p">)</span>
+<span class="n">k</span><span class="o">=</span><span class="mf">1.0</span>  <span class="c1"># spring coefficient</span>
+<span class="n">m</span><span class="o">=</span><span class="mf">1.0</span>  <span class="c1"># masses</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">fig</span><span class="p">,</span><span class="n">ax</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">xs0</span><span class="p">,</span><span class="n">ys0</span><span class="p">,</span><span class="s1">'o-'</span><span class="p">);</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_png output_subarea ">
+<img src="data:image/png;base64,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%0A">
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">dxs0</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">diff</span><span class="p">(</span><span class="n">xs0</span><span class="p">)</span>
+<span class="n">dys0</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">diff</span><span class="p">(</span><span class="n">ys0</span><span class="p">)</span>
+<span class="n">ls0</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">dxs0</span><span class="o">**</span><span class="mi">2</span><span class="o">+</span><span class="n">dys0</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">calculate_spring_forces</span><span class="p">(</span><span class="n">xs</span><span class="p">,</span><span class="n">ys</span><span class="p">):</span>
+    <span class="n">dxs</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">diff</span><span class="p">(</span><span class="n">xs</span><span class="p">)</span>
+    <span class="n">dys</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">diff</span><span class="p">(</span><span class="n">ys</span><span class="p">)</span>
+    <span class="n">fxs</span> <span class="o">=</span> <span class="n">k</span><span class="o">*</span><span class="p">(</span><span class="n">dxs</span><span class="o">-</span><span class="n">dxs0</span><span class="p">)</span>
+    <span class="n">fys</span> <span class="o">=</span> <span class="n">k</span><span class="o">*</span><span class="p">(</span><span class="n">dys</span><span class="o">-</span><span class="n">dys0</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">fxs</span><span class="p">,</span><span class="n">fys</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">calculate_spring_forces</span><span class="p">(</span><span class="n">xs</span><span class="o">=</span><span class="n">xs0</span><span class="p">,</span> <span class="n">ys</span><span class="o">=</span><span class="n">ys0</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>(array([0., 0.]), array([0., 0.]))</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">xs_</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">xs</span><span class="p">)</span>
+<span class="n">xs_</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">-=</span><span class="mf">1.0</span>
+<span class="n">calculate_spring_forces</span><span class="p">(</span><span class="n">xs</span><span class="o">=</span><span class="n">xs_</span><span class="p">,</span> <span class="n">ys</span><span class="o">=</span><span class="n">ys0</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>(array([1., 0.]), array([0., 0.]))</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">xs</span><span class="o">=</span><span class="n">xs0</span>
+<span class="n">ys</span><span class="o">=</span><span class="n">ys0</span>
+<span class="n">fxs</span><span class="p">,</span><span class="n">fys</span> <span class="o">=</span> <span class="n">calculate_spring_forces</span><span class="p">(</span><span class="n">xs</span><span class="o">=</span><span class="n">xs</span><span class="p">,</span> <span class="n">ys</span><span class="o">=</span><span class="n">ys</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>...to be continued</p>
+
+</div>
+</div>
+</div>
+</div>
+
+
+
+  </div><!-- from https://github.com/utterance/utterances -->
+<script src="https://utteranc.es/client.js"
+        repo="martinlarsalbert/blog"
+        issue-term="title"
+        label="blogpost-comment"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+</script><a class="u-url" href="/blog/simulation/mechanics/2020/10/14/01_springs.html" hidden></a>
+</article>
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/blog/"></data>
+
+  <div class="wrapper">
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col">
+        <p class="feed-subscribe">
+          <a href="/blog/feed.xml">
+            <svg class="svg-icon orange">
+              <use xlink:href="/blog/assets/minima-social-icons.svg#rss"></use>
+            </svg><span>Subscribe</span>
+          </a>
+        </p>
+      </div>
+      <div class="footer-col">
+        <p>Blog about data analysis for ship hydrodynamics.</p>
+      </div>
+    </div>
+
+    <div class="social-links"><ul class="social-media-list"><li><a rel="me" href="https://github.com/martinlarsalbert" title="martinlarsalbert"><svg class="svg-icon grey"><use xlink:href="/blog/assets/minima-social-icons.svg#github"></use></svg></a></li></ul>
+</div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>
