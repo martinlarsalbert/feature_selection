@@ -6,3 +6,4 @@ rolldecay-estimators
 altair
 jupyter
 ipywidgets
+suntime
