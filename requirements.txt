@@ -7,3 +7,5 @@ altair
 jupyter
 ipywidgets
 suntime
+datashader
+holoviews
