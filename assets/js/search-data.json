@@ -40,17 +40,6 @@
 
   
       "page1": {
-          "title": "DEMOPS",
-          "content": "I have had the privilige to work as Industrial PHD in a project called DEMOPS which roughly stands for Development of Machine Learning for Operational Performance of Ships. .",
-          "url": "https://martinlarsalbert.github.io/blog/DEMOPS/",
-          "relUrl": "/DEMOPS/",
-          "date": ""
-      }
-      
-  
-
-  
-      ,"page2": {
           "title": "About Me",
           "content": "Naval Architect degree from KTH in 2009. | Works at: SSPA | Industrial PHD at Chalmers since 2020. | . Links: . Publications . Master thesis . Contact . .",
           "url": "https://martinlarsalbert.github.io/blog/about/",
@@ -63,7 +52,7 @@
   
 
   
-      ,"page4": {
+      ,"page3": {
           "title": "Research",
           "content": "2020 . I have had the privilige to work as Industrial PHD in a project called DEMOPS which roughly stands for Development of Machine Learning for Operational Performance of Ships. . 2021 . The industrial PHD project is now working in the project: Data-driven energy efficiency of ships(D2E2F). .",
           "url": "https://martinlarsalbert.github.io/blog/research/",
@@ -95,7 +84,7 @@
   
 
   
-      ,"page13": {
+      ,"page12": {
           "title": "",
           "content": "Sitemap: {{ “sitemap.xml” | absolute_url }} | .",
           "url": "https://martinlarsalbert.github.io/blog/robots.txt",
