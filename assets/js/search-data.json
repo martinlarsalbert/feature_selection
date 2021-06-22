@@ -3,6 +3,19 @@
     
   
     
+        "post1": {
+            "title": "Title",
+            "content": "",
+            "url": "https://martinlarsalbert.github.io/blog/2021/06/21/testing.html",
+            "relUrl": "/2021/06/21/testing.html",
+            "date": " • Jun 21, 2021"
+        }
+        
+    
+  
+    
+  
+    
   
     
   
@@ -43,7 +56,7 @@
   
 
   
-      "page1": {
+      ,"page1": {
           "title": "About Me",
           "content": "Naval Architect degree from KTH in 2009. | Works at: SSPA | Industrial PHD at Chalmers since 2020. | . Links: . Publications . Master thesis . Contact . .",
           "url": "https://martinlarsalbert.github.io/blog/about/",
