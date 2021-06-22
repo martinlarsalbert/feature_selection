@@ -1,0 +1,11 @@
+pandas
+numpy
+matplotlib
+requests
+rolldecay-estimators
+altair
+jupyter
+ipywidgets
+suntime
+datashader
+holoviews
